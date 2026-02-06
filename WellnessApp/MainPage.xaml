@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WellnessApp.MainPage"
+             Title="Daily Wellness">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <!-- Gender Selection -->
+            <Label Text="Select Gender"
+                   FontAttributes="Bold"
+                   FontSize="18" />
+
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+
+                <!-- Male -->
+                <Frame x:Name="MaleFrame"
+                       Padding="15"
+                       CornerRadius="15"
+                       BorderColor="Gray"
+                       HasShadow="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnMaleTapped"/>
+                    </Frame.GestureRecognizers>
+
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                        <Image Source="male.png"
+                               HeightRequest="80"/>
+                        <Label Text="Male"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Female -->
+                <Frame x:Name="FemaleFrame"
+                       Padding="15"
+                       CornerRadius="15"
+                       BorderColor="Gray"
+                       HasShadow="True">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnFemaleTapped"/>
+                    </Frame.GestureRecognizers>
+
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="Center">
+                        <Image Source="female.png"
+                               HeightRequest="80"/>
+                        <Label Text="Female"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </HorizontalStackLayout>
+
+            <!-- Sleep -->
+            <Label Text="Sleep Hours (Last Night)" FontAttributes="Bold"/>
+            <Label x:Name="SleepLabel" Text="7.0 h"/>
+            <Slider x:Name="SleepSlider"
+                    Minimum="0"
+                    Maximum="12"
+                    Value="7"
+                    ValueChanged="OnValueChanged"/>
+
+            <!-- Stress -->
+            <Label Text="Stress Level" FontAttributes="Bold"/>
+            <Label x:Name="StressLabel" Text="4"/>
+            <Slider x:Name="StressSlider"
+                    Minimum="0"
+                    Maximum="10"
+                    Value="4"
+                    ValueChanged="OnValueChanged"/>
+
+            <!-- Activity -->
+            <Label Text="Activity Minutes (Today)" FontAttributes="Bold"/>
+            <Label x:Name="ActivityLabel" Text="30 min"/>
+            <Slider x:Name="ActivitySlider"
+                    Minimum="0"
+                    Maximum="120"
+                    Value="30"
+                    ValueChanged="OnValueChanged"/>
+
+            <!-- Results -->
+            <Frame Padding="20"
+                   CornerRadius="15"
+                   BackgroundColor="#F2F2F2">
+                <VerticalStackLayout Spacing="10">
+
+                    <Label Text="Wellness Score"
+                           FontSize="18"
+                           HorizontalOptions="Center"/>
+
+                    <Label x:Name="ScoreLabel"
+                           FontSize="48"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+
+                    <Label x:Name="StatusLabel"
+                           FontSize="20"
+                           HorizontalOptions="Center"/>
+
+                    <Label x:Name="RecommendationLabel"
+                           FontSize="14"/>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
